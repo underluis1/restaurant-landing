@@ -2,6 +2,7 @@
 
 import { motion, useScroll, useTransform } from "framer-motion"
 import { useRef } from "react"
+import Image from "next/image"
 
 const dishes = [
   {
@@ -34,7 +35,7 @@ export default function FeaturedDishes() {
       <div className="container mx-auto px-4">
         <h2 className="text-4xl font-bold mb-12 text-center">I Nostri Piatti in Evidenza</h2>
         <div className="flex flex-wrap -mx-4">
-          {dishes.map((dish, index) => (
+          {dishes.map((dish) => (
             <motion.div
               key={dish.name}
               className="w-full md:w-1/3 px-4 mb-8"
@@ -43,7 +44,16 @@ export default function FeaturedDishes() {
               }}
             >
               <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-                <img src={dish.image || "/placeholder.svg"} alt={dish.name} className="w-full h-64 object-cover" />
+                <div className="relative w-full h-64">
+                  <Image
+                    src={dish.image || "/placeholder.svg"}
+                    alt={dish.name || "Immagine di un piatto"}
+                    fill
+                    style={{ objectFit: "cover" }}
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    priority
+                  />
+                </div>
                 <div className="p-6">
                   <h3 className="text-2xl font-semibold mb-2">{dish.name}</h3>
                   <p className="text-gray-600">Una deliziosa specialità della casa</p>

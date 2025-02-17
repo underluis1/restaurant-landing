@@ -3,9 +3,18 @@
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 
-const menuCategories = ["Antipasti", "Primi", "Secondi", "Dessert"]
+// Definiamo un tipo per le categorie del menu
+const menuCategories = ["Antipasti", "Primi", "Secondi", "Dessert"] as const
+type Category = (typeof menuCategories)[number]
 
-const menuItems = {
+// Definiamo un tipo per gli elementi del menu
+type Item = {
+  name: string
+  price: string
+}
+
+// Definiamo il menu con un Record che mappa le categorie agli elementi
+const menuItems: Record<Category, Item[]> = {
   Antipasti: [
     { name: "Bruschetta", price: "€8" },
     { name: "Caprese", price: "€10" },
@@ -25,12 +34,14 @@ const menuItems = {
 }
 
 export default function Menu() {
-  const [activeCategory, setActiveCategory] = useState(menuCategories[0])
+  const [activeCategory, setActiveCategory] = useState<Category>(menuCategories[0])
 
   return (
     <section className="py-20 bg-gray-100">
       <div className="container mx-auto px-4">
         <h2 className="text-4xl font-bold mb-12 text-center">Il Nostro Menu</h2>
+        
+        {/* Bottoni per la selezione della categoria */}
         <div className="flex justify-center mb-8">
           {menuCategories.map((category) => (
             <button
@@ -44,6 +55,8 @@ export default function Menu() {
             </button>
           ))}
         </div>
+
+        {/* Animazione con Framer Motion */}
         <AnimatePresence mode="wait">
           <motion.div
             key={activeCategory}
@@ -53,7 +66,7 @@ export default function Menu() {
             transition={{ duration: 0.3 }}
             className="max-w-2xl mx-auto"
           >
-            {menuItems[activeCategory].map((item) => (
+            {menuItems[activeCategory]?.map((item) => (
               <div key={item.name} className="flex justify-between items-center mb-4">
                 <h3 className="text-xl font-semibold">{item.name}</h3>
                 <p className="text-lg">{item.price}</p>
@@ -65,4 +78,3 @@ export default function Menu() {
     </section>
   )
 }
-

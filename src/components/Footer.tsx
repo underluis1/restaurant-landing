@@ -7,7 +7,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
           <div className="flex flex-col items-center">
             <h3 className="text-2xl font-bold mb-4">Ristorante XYZ</h3>
-            <p className="max-w-xs mx-auto">Un'esperienza culinaria indimenticabile nel cuore della città.</p>
+            <p className="max-w-xs mx-auto">Un&apos;esperienza culinaria indimenticabile nel cuore della città.</p>
           </div>
           <div>
             <h4 className="text-xl font-semibold mb-4">Contatti</h4>

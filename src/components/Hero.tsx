@@ -22,7 +22,7 @@ export default function Hero() {
         className="relative z-20 text-center text-white"
       >
         <h1 className="text-6xl font-bold mb-4">Benvenuti al Ristorante</h1>
-        <p className="text-xl mb-8">Un'esperienza culinaria indimenticabile</p>
+        <p className="text-xl mb-8">Un&apos;esperienza culinaria indimenticabile</p>
         <motion.button
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}

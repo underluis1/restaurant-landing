@@ -15,7 +15,7 @@ export default function About() {
         >
           <h2 className="text-4xl font-bold mb-6">La Nostra Storia</h2>
           <p className="text-xl text-gray-700 mb-8">
-            Da oltre 30 anni, il nostro ristorante offre un'esperienza culinaria unica, combinando tradizione e
+            Da oltre 30 anni, il nostro ristorante offre un&apos;esperienza culinaria unica, combinando tradizione e
             innovazione. I nostri chef esperti utilizzano solo ingredienti freschi e di alta qualità per creare piatti
             che delizieranno il vostro palato.
           </p>
